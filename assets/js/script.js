@@ -17,58 +17,79 @@ const dadoMachine = document.getElementById('dado_machine');
 
 //Associa un buttone ad un funzione e al click stampa a video il risultato
 buttonGenera.addEventListener('click', function () {
-dadoUser.innerHTML = ' ';
-dadoMachine.innerHTML = ' ';
-//Genera un numero random da 1 a 6
-let numberUserRandom = Math.floor((Math.random()*6)+1);
-console.log(numberUserRandom);
-let numberMachineRandom = Math.floor((Math.random()*6)+1);
-console.log(numberMachineRandom);
+    dadoUser.innerHTML = ' ';
+    dadoMachine.innerHTML = ' ';
+    //Genera un numero random da 1 a 6
+    let numberUserRandom = Math.floor((Math.random() * 6) + 1);
+    console.log(numberUserRandom);
+    let numberMachineRandom = Math.floor((Math.random() * 6) + 1);
+    console.log(numberMachineRandom);
 
-//Assegna il numero random a due giocatori
-const userNumber = numberUserRandom;
-console.log(userNumber + ' numero giocatore');
-const machineNumber = numberMachineRandom;
-console.log(machineNumber + ' numero del PC');
-    
-//Confronta i due numeri e stabilisci il vincitore dado della Macchina  
-if (userNumber > machineNumber){
-    //console.log(dadoUser);
-    dadoUser.innerHTML = userNumber + (' Hai vinto!')
-    console.log(dadoUser);
-    dadoMachine.innerHTML = machineNumber + (' la Macchina ha perso!, evviva XD')
-    console.log(dadoMachine);
-} else if (userNumber == machineNumber) {
-    //console.log(dadoUser);
-    dadoUser.innerHTML = userNumber + (' Hai pareggiato!, che sfortuna riprova ;D')
-    console.log(dadoUser);
-    dadoMachine.innerHTML = machineNumber + (' la Macchina ha pareggiato con te!, che sfortuna riprova ;D')
-    console.log(dadoMachine);
-} else if (userNumber < machineNumber) {
-    //console.log(dadoUser);
-    dadoUser.innerHTML = machineNumber + (' Hai perso!, peccato XO')
-    console.log(dadoUser);
-    dadoMachine.innerHTML = machineNumber + (' la Macchina ha vinto! buuuuu XD')
-    console.log(dadoMachine);
-}
+    //Assegna il numero random a due giocatori
+    const userNumber = numberUserRandom;
+    console.log(userNumber + ' numero giocatore');
+    const machineNumber = numberMachineRandom;
+    console.log(machineNumber + ' numero del PC');
+
+    //Confronta i due numeri e stabilisci il vincitore dado della Macchina  
+    if (userNumber > machineNumber) {
+        //console.log(dadoUser);
+        dadoUser.innerHTML = userNumber + (' Hai vinto!')
+        console.log(dadoUser);
+        dadoMachine.innerHTML = machineNumber + (' la Macchina ha perso!, evviva XD')
+        console.log(dadoMachine);
+    } else if (userNumber == machineNumber) {
+        //console.log(dadoUser);
+        dadoUser.innerHTML = userNumber + (' Hai pareggiato!, che sfortuna riprova ;D')
+        console.log(dadoUser);
+        dadoMachine.innerHTML = machineNumber + (' la Macchina ha pareggiato con te!, che sfortuna riprova ;D')
+        console.log(dadoMachine);
+    } else if (userNumber < machineNumber) {
+        //console.log(dadoUser);
+        dadoUser.innerHTML = machineNumber + (' Hai perso!, peccato XO')
+        console.log(dadoUser);
+        dadoMachine.innerHTML = machineNumber + (' la Macchina ha vinto! buuuuu XD')
+        console.log(dadoMachine);
+    }
 })
 
 
 
-//Associa la mail inserita ad una variabile
-const userEmail = document.getElementById('user_mail');
-const resultCheck = document.getElementById('result_check');
+//Crea un array con un lista di email
+const listaEmail = ['marco', 'giulia', 'giulio', 'elisa'];
 
-//Associa una variabile al bottone Submit
-const btnCheck = document.getElementById('button_checkmail');
-
+//Crea un buttone
+const btnClick = document.getElementById('button_check');
 
 
-//Crea un array con una lista di email
-const emailList = ['marco_rossi@gmail.com', 'valeria_constantini87@gmail.com', 'romeo_e_giulietta@gmail.com'];
+
+//Crea una variabile di accesso di verifica dell'utente
+let accessCheck = false;
+const inputMail = document.getElementById('result_check');
 
 
-//Al click del bottone stampa a video
-btnCheck.addEventListener("click", function () {
-    resultCheck.innerHTML = userEmail.value;
-});
+
+//Crea un ciclo loop dentro la lista
+
+console.log(accessCheck);
+btnClick.addEventListener('click', function () {
+    for (let i = 0; i < listaEmail.length; i++) {
+        //Crea unan varibile constante con all'interno la mail inserita dall'utente
+        const userMail = document.getElementById('user_mail').value;
+        console.log(userMail);
+        const mailOfList = listaEmail[i];
+        console.log(mailOfList);
+    }
+        //Se la mail dell'utente è identica a una mail della lista: accesso autorizzato
+        if (userMail < mailOfList) {
+           
+            console.log('accesso autorizzato');                                // --> trova soluzione bottone, non stampa il log
+        } else {
+            console.log('accesso negato');
+    }
+})
+
+//Controlla se presente nell lista
+
+
+//Verifica se vero l'accesso è autorizzato, altrimenti è negato
